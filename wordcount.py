@@ -35,10 +35,11 @@ import sys
 def popula_dicionario(contents):
 	dictCount={}
 	for char in contents.lower():
-		if char in dictCount:
-			dictCount[char]=int(dictCount.get(char))+1							
-		else:
-			dictCount[char]=1
+		if char!="\n":			
+			if char in dictCount:
+				dictCount[char]=int(dictCount.get(char))+1							
+			else:
+				dictCount[char]=1
 	return dictCount
 
 
