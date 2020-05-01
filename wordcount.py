@@ -32,37 +32,34 @@ Seu trabalho é implementar as funções print_words() e depois print_top().
 
 import sys
 
-
-def print_words(filename):
-	f=open(filename, "r")
-	contents =f.read()
+def popula_dicionario(contents):
 	dictCount={}
 	for char in contents.lower():
 		if char in dictCount:
 			dictCount[char]=int(dictCount.get(char))+1							
 		else:
 			dictCount[char]=1
+	return dictCount
+
+
+def print_words(filename):
+	f=open(filename, "r")
+	contents =f.read()
+	dictCount=popula_dicionario(contents)
 
 	# imprime chave e valor do dicionario
 	for chave, valor in dictCount.items():
 		print(f'{chave} {valor}') 
 
 
-	f.close()
-	
+	f.close()	
 
 
 def print_top(filename):
 	f=open(filename, "r")
-	dictCount={}
 	dictOrder={}
 	contents =f.read()
-	dictCount={}
-	for char in contents.lower():
-		if char in dictCount:
-			dictCount[char]=int(dictCount.get(char))+1							
-		else:
-			dictCount[char]=1
+	dictCount=popula_dicionario(contents)
 
 	# Insere na Ordem
 	for chave, valor in list(dictCount.items()):		
