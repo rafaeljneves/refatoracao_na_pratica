@@ -34,8 +34,10 @@ import sys
 
 def popula_dicionario(contents):
 	dictCount={}
-	for char in contents.lower():
-		if char!="\n":			
+	contents = contents.splitlines()
+	for linha in contents:
+		for char in linha:
+			char = char.lower()
 			if char in dictCount:
 				dictCount[char]=int(dictCount.get(char))+1							
 			else:
@@ -51,7 +53,6 @@ def print_words(filename):
 	# imprime chave e valor do dicionario
 	for chave, valor in dictCount.items():
 		print(f'{chave} {valor}') 
-
 
 	f.close()	
 
