@@ -12,3 +12,7 @@ def run(mode, capsys, monkeypatch):
 
 def test_count(capsys, monkeypatch):
 	assert run('--count', capsys, monkeypatch) == "b 3\nc 2\na 6\n"
+
+
+def test_topcount(capsys, monkeypatch):
+	assert run('--topcount', capsys, monkeypatch) == "a 6\nb 3\nc 2\n"
